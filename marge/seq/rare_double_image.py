@@ -846,14 +846,13 @@ class RareDoubleImage(blankSeq.MRIBLANKSEQ):
                     imgTyger = tyger_denoising_double_tep.denoisingTyger_double(rawData_path, out_field, out_field_k,
                                                                         input_echoes)
                     imageTyger = np.abs(imgTyger[0])
-                elif hw.snraware_version == 'local':
+                elif hw.snraware_version == 'Local':
                     imgTyger = tyger_denoising_double_local.denoisingTyger_double(rawData_path, out_field, out_field_k,
                                                                         input_echoes)
                     imageTyger = np.abs(np.squeeze(imgTyger))
                 else:
                     print('Denoising not available for snrawre_version = None')
                     imgTyger = None
-                
                 
                 imageTyger = imageTyger / np.max(np.reshape(imageTyger, -1)) * 100
 
